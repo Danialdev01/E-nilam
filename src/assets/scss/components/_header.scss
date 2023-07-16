@@ -1,0 +1,50 @@
+@media screen and (max-width:764px) {
+    .nav li {
+        text-align: center;
+        
+        & .active{
+            color: white !important;
+            background-color: #0019FF;
+        }
+    }
+}
+
+
+// header
+.nav {
+    & li{
+        text-align: left;
+
+        & .active{
+            color: #0019FF;
+
+        }
+    }
+    .setting-icon{
+        cursor: pointer;
+    }
+}
+
+// search
+
+.search-header{
+    border:1px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    input{
+        background: none;
+        height: 24px;
+        outline: none;
+        font-size: 0.8rem;
+        color: white;
+        border: none;
+        width: max-content;
+
+        &:hover{
+            cursor: pointer;
+        }
+        &:last-child{
+            padding-right: 5px;
+            background-image: url('../../images/icons/search.png');
+        }
+    }
+}
