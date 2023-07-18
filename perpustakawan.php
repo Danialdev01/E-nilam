@@ -17,7 +17,7 @@
                 <h3>Login Perpustakawan</h3>
                 <div class="input">
                     <input name="nama_perpustakawan" type="text" placeholder="Nama Perpustakawan" required><br><br>
-                    <input name="password_perpustakawan" type="text" placeholder="Katalaluan" required>
+                    <input name="password_perpustakawan" type="password" placeholder="Katalaluan" required>
                     <br><br>
                     <input type="hidden" name="h_code" value="<?php print $code; ?>"><span class="captcha"><?php print $code; ?></span><br><br>
                     <input type="number" id="captcha" name="captcha" placeholder="Masukkan nombor didalam gambar diatas" required>
