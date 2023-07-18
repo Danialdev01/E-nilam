@@ -13,7 +13,7 @@
     <?php $dir_location=".."; $title="Buku"; include('../components/head.php') ?>
 </head>
 <body>
-    <?php $type_page="buku"; $dir_location="../"; include("../components/header-perpustakawan.php") ?>
+    <?php $type_page="buku"; $dir_location=".."; include("../components/header-perpustakawan.php") ?>
 
     <div class="main-container">
         

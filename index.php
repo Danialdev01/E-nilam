@@ -22,9 +22,9 @@
                     <input type="number" id="captcha" name="captcha" placeholder="Masukkan nombor didalam gambar diatas" required>
 
                     <div class="links text-left"><br>
-                        <p class="text-white">Adakah anda seorang <a class="text-blue-700" href="./perpustakawan.php">perpustakawan</a></p>
-                        <p class="text-white">Adakah anda mahu <a class="text-blue-700" href="./register.php">register</a></p>
-                    </div>
+                        <p class="text-white text-sm">Adakah anda seorang <a class="text-blue-700" href="./perpustakawan.php">perpustakawan</a></p>
+                        <p class="text-white text-sm">Adakah anda mahu <a class="text-blue-700" href="./register.php">register</a></p>
+                    </div><br>
                     <div class="input-submit">
                         <input type="submit" value="Log Masuk" name="login">
                     </div>

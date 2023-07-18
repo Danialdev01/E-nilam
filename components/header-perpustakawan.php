@@ -1,16 +1,16 @@
 <?php
     $dir_locationK = $dir_location;
-    if($dir_locationK = "."){
+    if($dir_locationK == "."){
         $dir_location_link = ".";
     }
-    elseif($dir_locationK = ".."){
+    elseif($dir_locationK == ".."){
         $dir_location_link = ".";
     }
-    elseif($dir_locationK = "../.."){
+    elseif($dir_locationK == "../.."){
         $dir_location_link = "..";
     }
     else{
-        $dir_location_link = "../..";
+        $dir_location_link == "../..";
     }
 ?>
 <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
