@@ -19,3 +19,8 @@ nombor ic pengguna yang logged in
 ### error
 (text)
 user error message
+
+#### status permohonan
+- 0 : batal
+- 1 : baru hendak mohon
+- 2 : telah disahkan

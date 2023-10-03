@@ -16,8 +16,7 @@
 <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="<?php echo $dir_location_link ?>/" class="flex items-center">
-            <img src="<?php echo $dir_location ?>/src/assets/images/kvks.png" class="h-8 mr-3" alt="Kv logo">
-            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">E Nilam</span>
+        <img src="<?php echo $dir_location ?>/src/assets/images/logo-banner.png" class="w-36 mr-3" alt="logo">
         </a>
     </div>
     <div class=" bg-primary flex flex-wrap items-center justify-between w-full px-3 lg:px-8 py-2">
@@ -34,15 +33,15 @@
                     Dashboard</a>
                 </li>
                 <li class="w-full">
-                <a href="<?php echo $dir_location_link ?>/buku.php" class="<?php if($type_page == 'buku'){echo "active";} ?> block py-4 pl-3 pr-4 text-white rounded md:border-0 md:hover:text-white font-bold md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700">
+                <a href="<?php echo $dir_location_link ?>/buku" class="<?php if($type_page == 'buku'){echo "active";} ?> block py-4 pl-3 pr-4 text-white rounded md:border-0 md:hover:text-white font-bold md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700">
                     Buku</a>
                 </li>
                 <li class="w-full">
-                <a href="<?php echo $dir_location_link ?>/pengguna.php" class="<?php if($type_page == 'pengguna'){echo "active";} ?> block py-4 pl-3 pr-4 text-white rounded md:border-0 md:hover:text-white font-bold md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700">
+                <a href="<?php echo $dir_location_link ?>/pengguna" class="<?php if($type_page == 'pengguna'){echo "active";} ?> block py-4 pl-3 pr-4 text-white rounded md:border-0 md:hover:text-white font-bold md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700">
                     Pengguna</a>
                 </li>
                 <li class="w-full">
-                <a href="<?php echo $dir_location_link ?>/permohonan.php" class="<?php if($type_page == 'permohonan'){echo "active";} ?> block py-4 pl-3 pr-4 text-white rounded md:border-0 md:hover:text-white font-bold md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700">
+                <a href="<?php echo $dir_location_link ?>/permohonan" class="<?php if($type_page == 'permohonan'){echo "active";} ?> block py-4 pl-3 pr-4 text-white rounded md:border-0 md:hover:text-white font-bold md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700">
                     Permohonan</a>
                 </li>
                 <a href="<?php echo $dir_location_link ?>/achivements.php" class="<?php if($type_page == 'achivements'){echo "active";} ?> block py-4 pl-3 pr-4 text-white rounded md:border-0 md:hover:text-white font-bold md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700">
@@ -73,3 +72,18 @@
 
 <br>
 
+<?php
+    session_start();
+    //prompt function
+    function alertMsg($alertMsg){
+        if($alertMsg == ""){
+
+        }
+        else {
+            echo("<script type='text/javascript'> var answer = alert('".$alertMsg."'); </script>");
+        }
+    }
+
+    alertMsg($_SESSION['prompt']);
+    $_SESSION['prompt'] = "";
+?>
