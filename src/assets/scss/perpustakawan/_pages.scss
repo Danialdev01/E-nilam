@@ -1,0 +1,35 @@
+
+.tambah-buku-container{
+    .buku-container1 img{
+        width:80%;
+        max-width:320px;
+        background-color:grey;
+        border-radius:15px;
+        border:none;
+        aspect-ratio : 16/23; 
+    }
+}
+
+.form-buku-tambah{
+    .input{
+        // justify-content: center;
+        padding: 10px;
+        // text-align: left;
+
+        label{
+            color: white;
+            padding-right: 5px;
+            min-width: 110px;
+        }
+
+        select{
+            height: 30px;
+            border-radius: 5px;
+        }
+
+        input{
+            height: 30px;
+            border-radius: 5px;
+        }
+    }
+}

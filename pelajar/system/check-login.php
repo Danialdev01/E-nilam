@@ -16,6 +16,7 @@
 
             $_SESSION['icCurrentPengguna'] = $ic_pelajarPost;
             $_SESSION['isPenggunaLoggedIn'] = 2;
+            $_SESSION['prompt'] = "Berjaya Log Masuk";
             header("location:../");
             
         } 
