@@ -18,13 +18,21 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+.d-none {
+  display: none;
+}
+
+th, td {
+  padding: 10px !important;
+}
+
 .bg-primary {
   background-color: #1E1E1E;
 }
 
 .main-container {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 
 .error_massage {
@@ -73,6 +81,73 @@ input[type=number] {
   color: white;
 }
 
+.form-nilam {
+  background-color: black !important;
+  max-width: 430px;
+  text-align: center;
+  border-radius: 15px;
+  padding: 15px;
+}
+.form-nilam .input {
+  color: white;
+}
+.form-nilam .input tr td:first-child {
+  width: 34%;
+  font-size: 0.9rem;
+}
+.form-nilam .input select {
+  color: black;
+  width: 100% !important;
+  border-radius: 5px;
+}
+.form-nilam .input .input-rumusan {
+  padding-top: 10px;
+}
+.form-nilam .input .input-rumusan .text {
+  text-align: left;
+  padding-left: 4%;
+}
+.form-nilam .input .input-item {
+  padding: 4px;
+}
+.form-nilam .input .input-item input {
+  color: black !important;
+  width: 100%;
+  height: 35px;
+  border-radius: 5px;
+  padding: 5px;
+}
+.form-nilam .input .input-item textarea {
+  border-radius: 5px;
+  width: 100%;
+}
+
+.tambah-buku-container .buku-container1 img {
+  width: 80%;
+  max-width: 320px;
+  background-color: grey;
+  border-radius: 15px;
+  border: none;
+  aspect-ratio: 16/23;
+}
+
+.form-buku-tambah .input {
+  padding: 10px;
+}
+.form-buku-tambah .input label {
+  color: white;
+  padding-right: 5px;
+  min-width: 110px;
+}
+.form-buku-tambah .input select {
+  height: 30px;
+  border-radius: 5px;
+}
+.form-buku-tambah .input input {
+  height: 30px;
+  border-radius: 5px;
+}
+
 @media screen and (max-width: 764px) {
   .nav li {
     text-align: center;
@@ -111,4 +186,82 @@ input[type=number] {
 .search-header input:last-child {
   padding-right: 5px;
   background-image: url("../../images/icons/search.png");
+}
+
+.book {
+  display: inline-block;
+  width: 230px;
+  height: fit-content;
+  box-shadow: 0 0 20px #aaa;
+  margin: 25px;
+  padding: 10px 10px 0 10px;
+  vertical-align: top;
+  transition: height 1s;
+  background-color: rgb(15, 15, 15);
+  border-radius: 2%;
+  color: white;
+}
+
+.cover {
+  height: 80%;
+  overflow: hidden;
+}
+
+.cover img {
+  width: 100%;
+}
+
+.book p {
+  margin-top: 12px;
+  font-size: 20px;
+}
+
+.book .author {
+  font-size: 15px;
+  color: #aaa;
+}
+
+@media (max-width: 941px) {
+  .container {
+    max-width: 700px;
+  }
+  .book {
+    margin: 49px;
+  }
+}
+@media (max-width: 730px) {
+  .book {
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+}
+/**********************************
+display change
+***********************************/
+/*book height smaller, cover opacity, move text onto cover and star too
+animate it */
+#list-th:target .book {
+  height: 100px;
+  width: 250px;
+  padding: 10px;
+  margin: 25px auto 25px auto;
+}
+
+#list-th:target .cover {
+  width: 246px;
+}
+
+#list-th:target img {
+  opacity: 0.1;
+}
+
+#list-th:target p {
+  margin-top: -62px;
+  margin-left: 20px;
+}
+
+/* remove button? */
+#large-th:target .book {
+  height: 390px;
 }/*# sourceMappingURL=main.css.map */

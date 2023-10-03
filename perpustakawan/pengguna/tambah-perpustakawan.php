@@ -17,6 +17,7 @@
 
     <div class="main-container">
         <center>
+            <h2>Tambah Perpustakawan</h2>
             <div class="form-tambah-perpustakawan">
                 <form action="../system/tambah-perpustakawan.php" method="post">
                     <p>Nama Perpustakawan : <input name="nama_perpustakawan" type="text"></p><br>
@@ -28,6 +29,6 @@
         </center>
     </div>
 
-    <?php include("../components/footer.php") ?>
+    <?php include("../../components/footer.php") ?>
 </body>
 </html>

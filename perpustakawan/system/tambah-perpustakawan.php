@@ -9,11 +9,11 @@
             $password_perpustakawan = password_hash($_POST['password_perpustakawan'],PASSWORD_DEFAULT);
     
             $tambah_perpustakawan = mysqli_query($connect, "INSERT INTO perpustakawan (`id_perpustakawan`, `nama_perpustakawan`, `password_perpustakawan`, `status_perpustakawan`) VALUES (NULL, '$nama_perpustakawan', '$password_perpustakawan', '1')");
-            header("location:../pengguna.php"); 
+            header("location:../pengguna/"); 
         }
         else{
             $_SESSION['error'] = "Pengguna tidak boleh ditambah";
-            header("location:../");
+            header("location:../pengguna/");
         }
     }
 
