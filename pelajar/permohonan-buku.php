@@ -49,7 +49,7 @@
                     <br><br>
                     <form style="width:fit-content;filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1)) !important;" action="./system/tambah-permohonan.php" method="post">
                         <b>Mohon Pinjaman Buku</b><br>
-                        <p style="padding-top:10px">Tarikh Pinjaman  : <input type="date" class="rounded" name="tarikh_permohonan" id="" style="height: 40px;"></p>
+                        <p style="padding-top:10px">Tarikh Pinjaman  : <input required type="date" class="rounded" name="tarikh_permohonan" id="" style="height: 40px;"></p>
                         <input type="hidden" name="id_buku" value="<?php echo $buku['id_buku']?>">
                         <center>
                             <div class="submit pt-3 w-full">

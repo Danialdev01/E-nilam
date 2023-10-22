@@ -53,7 +53,7 @@
                     echo "You are " . $user_rank ."th";
                 }
                 else{
-                    echo "You havent done anything";
+                    echo "Sila buat nilam / peminjaman";
                 }
             ?>
         </p>

@@ -44,30 +44,53 @@
                 <li class="w-full">
                 <a href="<?php echo $dir_location_link ?>/rank.php" class="<?php if($type_page == 'rank'){echo "active";} ?> block py-4 pl-3 pr-4 text-white rounded md:border-0 md:hover:text-white font-bold md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700">
                     Rank</a>
+                    <div class="md:hidden block">
+                        <br>
+                    </div>
                 </li>
                 <li class="md:w-full">
                     <form action="list-buku.php"  method="POST" class="flex search-header">
-                        <input style="width:auto !important" class="focus:ring-0 focus:ring-offset-0" type="text" name="query" placeholder="cari buku">
-                        <input style="padding-right:10px;font-size:1.2rem;margin-top:-5px" class="text-right w-full" type="submit" value=" &#8981;" name="submit">
+                        <div class="w-full ">
+                            <input style="" class="focus:ring-0 focus:ring-offset-0" type="text" name="query" placeholder="cari buku">
+                        </div>
+                        <div class="justify-right flex">
+                            <input style="font-size:1.2rem;margin-top:-5px" class="text-right" type="submit" value=" &#8981;" name="submit">
+                        </div>
                     </form>
+                </li>
+                <li>
+                    <div class="nav-moble block md:hidden flex pt-6">
+                        <a href="<?php echo $dir_location_link?>/user.php" class="user w-full">
+                            <center>
+                                <img src="<?php echo $dir_location ?>/src/assets/images/icons/user.png" alt="icon">
+                            </center>
+                        </a>
+                        <a href="<?php echo $dir_location_link ?>/history.php" class="histoy w-full">
+                            <center>
+                                <img src="<?php echo $dir_location ?>/src/assets/images/icons/history.png" alt="icon">
+                            </center>
+                        </a>
+                        
+                        <a href="<?php echo $dir_location_link?>/system/log-out.php" class="logout w-full">
+                            <center>
+                                <img src="<?php echo $dir_location ?>/src/assets/images/icons/logout.png" style="height: 25px;" alt="icon">
+                            </center>
+                        </a>
+                    </div>
                 </li>
                 <li class="w-full justify-center flex md:block mt-3 md:mt-0">
                     <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="hidden md:block md:bg-transparent bg-blue-300 flex items-center justify-between md:w-full py-2 pl-3 pr-4 text-transparent rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-transparent md:p-0 md:w-auto dark:text-transparent md:dark:hover:text-transparent dark:focus:text-transparent dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
                         <img class="setting-icon md:h-7 hidden md:block" src="<?php echo $dir_location ?>/src/assets/images/icons/setting.png" alt="">
                     </button>
 
-                    <!-- TODO buat versi untuk mobile -->
                     <!-- Dropdown menu -->
                     <div id="dropdownNavbar" class="bg-primary z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                         <ul class="py-2 text-sm text-white font-bold dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                         <li>
-                            <a href="#" class="block px-4 py-2">User info</a>
+                            <a href="<?php echo $dir_location_link?>/user.php" class="block px-4 py-2">User info</a>
                         </li>
                         <li>
-                            <a href="#" class="block px-4 py-2">History</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2">Achivements</a>
+                            <a href="<?php echo $dir_location_link ?>/history.php" class="block px-4 py-2">History</a>
                         </li>
                         </ul>
                         <div class="py-1">

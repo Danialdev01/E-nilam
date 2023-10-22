@@ -21,43 +21,46 @@
     <div class="main-container p-3">
 
         <!-- display searched buku -->
-        <?php
-            if (isset($_POST['query'])) {
-                $searchQuery = $_POST['query'];
-                
-                // Perform the search logic using the $searchQuery
-                
-                // Display the search results
-                echo "Search results for: " . $searchQuery;
-                echo "<br>";
-                ?>
-                <div class="searched-items flex pt-4 flex-wrap">
+        <center>
+            <?php
+                if (isset($_POST['query'])) {
+                    $searchQuery = $_POST['query'];
                     
-                <?php
-                    $query = mysqli_query($connect,"SELECT * FROM buku WHERE tajuk_buku LIKE '%$searchQuery%'");
-                    while($find_buku = mysqli_fetch_array($query)){
-                        $img_name = $find_buku['img_location_buku'];
-                        ?>
+                    // Perform the search logic using the $searchQuery
+                    
+                    // Display the search results
+                    echo "Search results for: " . $searchQuery;
+                    echo "<br>";
+                    ?>
+                    <center>
+                    <div class="searched-items flex pt-4 flex-wrap">
+                        
+                    <?php
+                        $query = mysqli_query($connect,"SELECT * FROM buku WHERE tajuk_buku LIKE '%$searchQuery%'");
+                        while($find_buku = mysqli_fetch_array($query)){
+                            $img_name = $find_buku['img_location_buku'];
+                            ?>
 
-                        <a href="./permohonan-buku.php?id_buku=<?php echo $find_buku['id_buku']?>">
-                            <div class="book read">
-                                <div class="cover">
-                                    <img src="../perpustakawan/system/uploads/<?php echo $img_name?>">
+                            <a href="./permohonan-buku.php?id_buku=<?php echo $find_buku['id_buku']?>">
+                                <div class="book read">
+                                    <div class="cover">
+                                        <img src="../perpustakawan/system/uploads/<?php echo $img_name?>">
+                                    </div>
+                                    <div class="description">
+                                        <p class="title"><span style="font-size: 0.9rem;max-width:100%"><?php echo $find_buku['tajuk_buku']?></span><br>
+                                            <span class="author"><?php echo $find_buku['penulis_buku']?></span>
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="description">
-                                    <p class="title"><span style="font-size: 0.9rem;max-width:100%"><?php echo $find_buku['tajuk_buku']?></span><br>
-                                        <span class="author"><?php echo $find_buku['penulis_buku']?></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </a>
+                            </a>
 
-                        <?php
-                    }
-                echo "</div>";
+                            <?php
+                        }
+                    echo "</div></center>";
 
-            }
-        ?>
+                }
+            ?>
+        </center>
 
         <!-- display semua buku -->
         <?php 

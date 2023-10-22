@@ -2,12 +2,18 @@
     include('../../db/config.php');
 
     if(isset($_POST["tambah"])){
-        $tajuk_buku = $_POST['tajuk_buku'];
-        $id_genre = $_POST['id_genre'];
-        $bahasa_buku = $_POST['bahasa_buku'];
-        $penulis_buku = $_POST['penulis_buku'];
-        $penerbit_buku = $_POST['penerbit_buku'];
-        $penerangan_buku = $_POST['penerangan_buku'];
+        echo $tajuk_buku = $_POST['tajuk_buku'];
+        echo "<br>";
+        echo $id_genre = $_POST['id_genre'];
+        echo "<br>";
+        echo $bahasa_buku = $_POST['bahasa_buku'];
+        echo "<br>";
+        echo $penulis_buku = $_POST['penulis_buku'];
+        echo "<br>";
+        echo $penerbit_buku = $_POST['penerbit_buku'];
+        echo "<br>";
+        echo $penerangan_buku = $_POST['penerangan_buku'];
+        echo "<br>";
         if($_FILES["image"]["error"] === 4){
             echo "<script>alert('Image tidak dijumpai');</script>";
             header("location:../buku/tambah-buku.php");
@@ -39,7 +45,8 @@
                 echo $TmpName;
                 echo "<br>";
                 echo $newImageName;
-                $nama_file = $newImageName;
+                echo "<br>";
+                echo $nama_file = $newImageName;
                 
 
                 $upload = mysqli_query($connect, "INSERT INTO buku VALUES(NULL, '$tajuk_buku', '$id_genre', '$bahasa_buku', '$penulis_buku', '$penerbit_buku', '$penerangan_buku', '0', '$nama_file', '1')");

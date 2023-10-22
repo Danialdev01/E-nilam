@@ -40,26 +40,50 @@
                         <div class="card rounded-md bg-primary py-3 text-white">
                             <p>Rank</p>
                             <div class="flex" style="width:fit-content">
-                                <?php
-                                    $user_id = $pelajar['id_pelajar']; 
-                                    $query = "SELECT bil_bacaan_pelajar, id_pelajar FROM pelajar WHERE id_pelajar = '$user_id'";
-                                    $result = mysqli_query($connect, $query);
-                                    $row = mysqli_fetch_array($result);
-                                    $user_points = $row['bil_bacaan_pelajar'];
-        
-                                    // sort rank pelajar menggunakan bil_bacaan_pelajar , kalau sama nilai akan sort guna id_pelajar
-                                    $query = "SELECT COUNT(*) AS rank FROM pelajar WHERE bil_bacaan_pelajar > $user_points OR (bil_bacaan_pelajar = $user_points AND id_pelajar < $user_id)";
-                                    $result = mysqli_query($connect, $query);
-                                    $row = mysqli_fetch_assoc($result);
-                                    $user_rank = $row['rank'] + 1;
-        
-                                    if($user_rank <= 3){
-                                        echo "
-                                        <img class=\"w-8 h-6\" src=\"../src/assets/images/crowns/crown$user_rank.png\" alt=\"crown\">
-                                        ";
-                                    }
-                                ?>
-                                <p><?php echo $user_rank ?>th</p>
+                                <p>
+                                    <?php 
+                                        // cari nilai bilangan bacaan pelajar
+                                        $user_id = $pelajar['id_pelajar']; 
+                                        $query = "SELECT bil_bacaan_pelajar, id_pelajar FROM pelajar WHERE id_pelajar = '$user_id'";
+                                        $result = mysqli_query($connect, $query);
+                                        $row = mysqli_fetch_array($result);
+                                        $bil_bacaan_pelajar = $row['bil_bacaan_pelajar'];
+
+                                        // sort rank pelajar menggunakan bil_bacaan_pelajar , kalau sama nilai akan sort guna id_pelajar
+                                        $query_p = "SELECT rank
+                                                    FROM (
+                                                        SELECT id_pelajar, bil_bacaan_pelajar, bil_pinjaman_pelajar, 
+                                                        (bil_bacaan_pelajar + bil_pinjaman_pelajar) AS semua_buku,
+                                                        CASE
+                                                            WHEN bil_bacaan_pelajar = 0 AND bil_pinjaman_pelajar = 0 THEN NULL
+                                                            ELSE FIND_IN_SET((bil_bacaan_pelajar + bil_pinjaman_pelajar), (
+                                                                SELECT GROUP_CONCAT((bil_bacaan_pelajar + bil_pinjaman_pelajar) ORDER BY (bil_bacaan_pelajar + bil_pinjaman_pelajar) DESC)
+                                                                FROM pelajar
+                                                            ))
+                                                        END AS rank
+                                                        FROM pelajar
+                                                    ) AS ranks
+                                                    WHERE id_pelajar = $user_id";
+                                        $result_p = mysqli_query($connect, $query_p);
+                                        $row_p = mysqli_fetch_assoc($result_p);
+                                        $user_rank = $row_p['rank'];
+                                        if($user_rank != NULL){
+                                            if($user_rank <= 3){
+                                                echo "<div class=\"flex\">
+                                                <img class=\"w-8 h-6\" src=\"../src/assets/images/crowns/crown$user_rank.png\" alt=\"crown\">
+                                                <p>You are " . $user_rank ."th</p>
+                                                </div>
+                                                ";
+                                            }
+                                            else{
+                                                echo "<p>You are " . $user_rank ."th</p>";
+                                            }
+                                        }
+                                        else{
+                                            echo "Sila buat nilam / peminjaman";
+                                        }
+                                    ?>
+                                </p>
                             </div>
                         </div>
                     </center>
@@ -157,9 +181,9 @@
                     $permohonan_sql = mysqli_query($connect, "SELECT * FROM permohonan WHERE id_pelajar = '$id_pelajar' AND status_permohonan = '2'");
                     while($permohonan = mysqli_fetch_array($permohonan_sql)){
                         ?>
-                        <div class="permohonan-peminjaman-buku-container p-1">
-                            <div style="padding-left: 3%;padding:1%" class="permohonan-peminjaman-buku bg-primary rounded-md flex">
-                                <div class="w-full text-left flex">
+                        <div class="permohonan-peminjaman-buku-container p-1 text-center">
+                            <div style="padding-left: 3%;padding:1%" class="permohonan-peminjaman-buku bg-primary rounded-md md:flex">
+                                <div class="w-full text-left flex p-2 md:p-0">
                                     <img style="width: 30px;height:30px;" src="../src/assets/images/icons/pending.png" alt="pending icon">
                                     <p class="text-white pl-2">
                                         <?php 
@@ -177,24 +201,24 @@
 
                                         if (strtotime($permohonan['tarikh_hantar']) < time()) {
                                             ?>
-                                            <p class="text-red-500">
+                                            <p class="text-white hidden md:block">
                                                 <?php echo date_format($tarikh_hantar, "d/m/Y")?> 
                                             </p>
                                             <?php
                                         } else {
                                             ?>
-                                            <p class="text-white">
+                                            <p class="text-white hidden md:block">
                                                 <?php echo date_format($tarikh_hantar, "d/m/Y")?> 
                                             </p>
                                             <?php
                                         }
                                     ?>
                                 </p>
-                                <div class="w-full flex justify-end">
+                                <!-- <div class="w-full flex justify-end text-center w-full">
                                     <a href="./system/delete-permohonan.php?id_permohonan=<?php echo $permohonan['id_permohonan']?>">
-                                        <button class="text-red-700">Delete</button>
+                                        <button class="text-red-700 hidden md:block">Delete</button>
                                     </a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <?php
