@@ -26,7 +26,7 @@
 
     <div class="main-container pt-10">
         <center>
-            <form action="./pelajar/system/check-login.php" class="form-login" method="post">
+            <form action="./pelajar/system/tambah-pelajar.php" class="form-login" method="post">
                 <h3>Register Pelajar</h3>
                 <div class="input">
                     <div class="py-2">
