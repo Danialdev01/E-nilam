@@ -69,6 +69,11 @@
                                             class="border-r px-6 py-4 dark:border-neutral-500">
                                             Genre
                                         </th>
+                                        <th
+                                            scope="col"
+                                            class="border-r px-6 py-4 dark:border-neutral-500">
+                                            Aktiviti
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -107,6 +112,42 @@
                                                     echo $genre_buku['nama_genre'];
                                                     ?>
                                                 </td>
+                                                <td>Pinjaman</td>
+                                            </tr>
+                                            <?php
+                                        }
+                                    ?>
+                                    <?php 
+                                        $buku_nilam_sql = mysqli_query($connect, "SELECT * FROM nilam WHERE id_pelajar = '$id_pelajar'");
+                                        while($buku_nilam = mysqli_fetch_array($buku_nilam_sql)){
+                                            $i ++;
+                                            ?>
+    
+                                            <tr class="border-b dark:border-neutral-500">
+                                                <td class="whitespace-nowrap border-r px-6 py-4 font-medium dark:border-neutral-500">
+                                                    <?php echo $i;?>
+                                                </td>
+                                                <td class="whitespace-nowrap border-r px-6 py-4 dark:border-neutral-500">
+                                                    <?php 
+                                                        echo $buku_nilam['tajuk_bahan'];
+                                                    
+                                                    ?>
+                                                </td>
+                                                <td class="whitespace-nowrap border-r px-6 py-4 dark:border-neutral-500">
+                                                    <?php echo $buku_nilam['tarikh_bacaan'];?>
+                                                </td>
+                                                <td class="whitespace-nowrap border-r px-6 py-4 dark:border-neutral-500">
+                                                    <?php echo $buku_nilam['bahasa_bahan']?>
+                                                </td>
+                                                <td class="whitespace-nowrap border-r px-6 py-4 dark:border-neutral-500">
+                                                    <?php 
+                                                    $id_genre = $buku_nilam['genre_buku'];
+                                                    $genre_buku_nilam_sql = mysqli_query($connect, "SELECT * FROM genre WHERE id_genre ='$id_genre'");
+                                                    $genre_buku = mysqli_fetch_array($genre_buku_nilam_sql);
+                                                    echo $genre_buku['nama_genre'];
+                                                    ?>
+                                                </td>
+                                                <td>Nilam</td>
                                             </tr>
                                             <?php
                                         }
